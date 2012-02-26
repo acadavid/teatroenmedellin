@@ -28,3 +28,15 @@ group :development do
   gem 'factory_girl_rails'
   gem 'growl'
 end
+
+group :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'autotest'
+  gem 'database_cleaner'
+  gem 'minitest'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'growl'
+end
