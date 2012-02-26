@@ -1,4 +1,6 @@
 Teatroenmedellin::Application.routes.draw do
+  resources :venues
+
   resources :theaters
 
   # The priority is based upon order of creation:
