@@ -1,0 +1,29 @@
+<h1>Listing theaters</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Website</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @theaters.each do |theater| %>
+  <tr>
+    <td><%= theater.name %></td>
+    <td><%= theater.description %></td>
+    <td><%= theater.website %></td>
+    <td><%= theater.email %></td>
+    <td><%= link_to 'Show', theater %></td>
+    <td><%= link_to 'Edit', edit_theater_path(theater) %></td>
+    <td><%= link_to 'Destroy', theater, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Theater', new_theater_path %>
