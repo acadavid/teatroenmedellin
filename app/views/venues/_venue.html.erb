@@ -1,0 +1,20 @@
+<p>
+  <b>Name:</b>
+  <%= venue.name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= venue.city %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= venue.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= venue.phone %>
+</p>
+<%= link_to "Modificar sede", edit_theater_venue_path(@theater, venue) %> | <%= link_to "Eliminar sede", theater_venue_path(@theater, venue), method: :delete, confirm: "Esta seguro que desea eliminar esta sede?" %><br />

@@ -1,7 +1,8 @@
 Teatroenmedellin::Application.routes.draw do
-  resources :venues
 
-  resources :theaters
+  resources :theaters do
+    resources :venues, :except => [:index, :show]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

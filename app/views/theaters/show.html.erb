@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @theater.name %>
@@ -20,6 +18,9 @@
   <%= @theater.email %>
 </p>
 
-
 <%= link_to 'Edit', edit_theater_path(@theater) %> |
 <%= link_to 'Back', theaters_path %>
+
+<h1> My venues </h1>
+<%= render @venues %>
+<%= link_to 'Crear nueva sede', new_theater_venue_path(@theater) %>
