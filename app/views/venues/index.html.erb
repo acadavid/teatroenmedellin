@@ -1,0 +1,26 @@
+<h1>Venues</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @venues.each do |venue| %>
+      <tr>
+        <td><%= venue.id %></td>
+        <td><%= link_to venue.name, venue_path(venue) %></td>
+        <td><%= venue.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_venue_path(venue), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', venue_path(venue), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_venue_path, :class => 'btn btn-primary' %>

@@ -1,26 +1,27 @@
+<h1>/Theater</h1>
+
 <p>
-  <b>Name:</b>
+  <b>Name</b><br>
   <%= @theater.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Description</b><br>
   <%= @theater.description %>
 </p>
 
 <p>
-  <b>Website:</b>
+  <b>Website</b><br>
   <%= @theater.website %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Email</b><br>
   <%= @theater.email %>
 </p>
 
-<%= link_to 'Edit', edit_theater_path(@theater) %> |
-<%= link_to 'Back', theaters_path %>
-
-<h1> My venues </h1>
-<%= render @venues %>
-<%= link_to 'Crear nueva sede', new_theater_venue_path(@theater) %>
+<div class="form-actions">
+  <%= link_to 'Back', theaters_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_theater_path(@theater), :class => 'btn' %>
+  <%= link_to 'Delete', theater_path(@theater), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

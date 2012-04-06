@@ -1,29 +1,26 @@
-<h1>Listing theaters</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Website</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @theaters.each do |theater| %>
-  <tr>
-    <td><%= theater.name %></td>
-    <td><%= theater.description %></td>
-    <td><%= theater.website %></td>
-    <td><%= theater.email %></td>
-    <td><%= link_to 'Show', theater %></td>
-    <td><%= link_to 'Edit', edit_theater_path(theater) %></td>
-    <td><%= link_to 'Destroy', theater, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Theaters</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @theaters.each do |theater| %>
+      <tr>
+        <td><%= theater.id %></td>
+        <td><%= link_to theater.name, theater_path(theater) %></td>
+        <td><%= theater.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_theater_path(theater), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', theater_path(theater), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Theater', new_theater_path %>
+<%= link_to 'New', new_theater_path, :class => 'btn btn-primary' %>
