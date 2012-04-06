@@ -1,0 +1,32 @@
+<h1>/Act</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @act.name %>
+</p>
+
+<p>
+  <b>Description</b><br>
+  <%= @act.description %>
+</p>
+
+<p>
+  <b>Clasification</b><br>
+  <%= @act.clasification %>
+</p>
+
+<p>
+  <b>Price</b><br>
+  <%= @act.price %>
+</p>
+
+<p>
+  <b>Date</b><br>
+  <%= @act.date %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', acts_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_act_path(@act), :class => 'btn' %>
+  <%= link_to 'Delete', act_path(@act), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

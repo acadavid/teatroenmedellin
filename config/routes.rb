@@ -1,5 +1,7 @@
 Teatroenmedellin::Application.routes.draw do
 
+  resources :acts
+
   resources :theaters do
     resources :venues, :except => [:index, :show]
   end
