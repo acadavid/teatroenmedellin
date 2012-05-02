@@ -1,11 +1,9 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :act do
-    name "MyString"
-    description "MyText"
-    clasification "MyString"
+    name "Dog Cat Performance!"
+    description "A cute dog cat"
+    clasification "Kidos"
     price "9.99"
-    date "2012-04-05 22:25:38"
+    date Time.now
   end
 end
