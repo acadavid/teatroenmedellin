@@ -5,6 +5,8 @@ Teatroenmedellin::Application.routes.draw do
     resources :acts
   end
 
+  root :to => 'theaters#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
