@@ -4,6 +4,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Date</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -12,15 +13,16 @@
     <% @acts.each do |act| %>
       <tr>
         <td><%= act.id %></td>
-        <td><%= link_to act.name, act_path(act) %></td>
+        <td><%= link_to act.name, theater_act_path(@theater, act) %></td>
+        <td><%= act.date %></td>
         <td><%= act.created_at %></td>
         <td>
-          <%= link_to 'Edit', edit_act_path(act), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', act_path(act), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Edit', edit_theater_act_path(@theater, act), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', theater_act_path(@theater, act), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_act_path, :class => 'btn btn-primary' %>
+<%= link_to 'New', new_theater_act_path(@theater), :class => 'btn btn-primary' %>

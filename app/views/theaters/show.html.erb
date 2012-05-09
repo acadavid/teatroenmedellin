@@ -1,4 +1,4 @@
-<h1>/Theater</h1>
+<h1>Theater</h1>
 
 <p>
   <b>Name</b><br>
@@ -18,6 +18,16 @@
 <p>
   <b>Email</b><br>
   <%= @theater.email %>
+</p>
+
+<h3>Venues</h3>
+<p>
+  <%= render :partial => @theater.venues %>
+</p>
+
+<p>
+  <b>More</b><br>
+  <%= link_to "Acts", theater_acts_path(@theater) %>
 </p>
 
 <div class="form-actions">

@@ -1,38 +1,20 @@
-<%= form_for @theater, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_nested_form_for @theater, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> /Theater</legend>
+    <legend><%= controller.action_name.capitalize %> Theater</legend>
 
-    <div class="control-group">
-      <%= f.label :name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name, :class => 'text_field' %>
-      </div>
-    </div>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :website %>
+    <%= f.input :email %>
 
-    <div class="control-group">
-      <%= f.label :description, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_area :description, :class => 'text_area' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :website, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :website, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :email, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :email, :class => 'text_field' %>
-      </div>
-    </div>
-
+    <fieldset>
+      <h3>Venues</h3>
+    <%= f.fields_for :venues %>
+    <p><%= f.link_to_add "Add a venue", :venues %></p>
+    </fieldset>
     <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', theaters_path, :class => 'btn' %>
+      <%= f.button :submit, :class => 'btn btn-primary' %>
+      <%= link_to :cancel, theaters_path, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

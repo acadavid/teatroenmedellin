@@ -1,5 +1,3 @@
-<h1>/Act</h1>
-
 <p>
   <b>Name</b><br>
   <%= @act.name %>
@@ -26,7 +24,7 @@
 </p>
 
 <div class="form-actions">
-  <%= link_to 'Back', acts_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_act_path(@act), :class => 'btn' %>
-  <%= link_to 'Delete', act_path(@act), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to 'Back', theater_acts_path(@theater), :class => 'btn'  %>
+  <%= link_to 'Edit', edit_theater_act_path(@theater, @act), :class => 'btn' %>
+  <%= link_to 'Delete', theater_act_path(@theater, @act), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

@@ -1,45 +1,16 @@
-<%= form_for @venue, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [@theater, @venue], :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> /Venue</legend>
+    <legend><%= controller.action_name.capitalize %> Venue</legend>
 
-    <div class="control-group">
-      <%= f.label :name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :city, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :city, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :address, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :address, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :phone, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :phone, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :theater_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :theater_id, :class => 'number_field' %>
-      </div>
-    </div>
+    <%= f.association :theater, :selected => @theater, :disabled => true %>
+    <%= f.input :name %>
+    <%= f.input :city %>
+    <%= f.input :address %>
+    <%= f.input :phone %>
 
     <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', venues_path, :class => 'btn' %>
+      <%= f.button :submit, :class => 'btn btn-primary' %>
+      <%= link_to :cancel, theater_venues_path(@theater), :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

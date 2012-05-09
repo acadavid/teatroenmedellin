@@ -1,32 +1,25 @@
-<h1>/Venue</h1>
-
 <p>
   <b>Name</b><br>
-  <%= @venue.name %>
+  <%= venue.name %>
 </p>
 
 <p>
   <b>City</b><br>
-  <%= @venue.city %>
+  <%= venue.city %>
 </p>
 
 <p>
   <b>Address</b><br>
-  <%= @venue.address %>
+  <%= venue.address %>
 </p>
 
 <p>
   <b>Phone</b><br>
-  <%= @venue.phone %>
-</p>
-
-<p>
-  <b>Theater</b><br>
-  <%= @venue.theater_id %>
+  <%= venue.phone %>
 </p>
 
 <div class="form-actions">
   <%= link_to 'Back', venues_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_venue_path(@venue), :class => 'btn' %>
-  <%= link_to 'Delete', venue_path(@venue), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to 'Edit', edit_venue_path(venue), :class => 'btn' %>
+  <%= link_to 'Delete', venue_path(venue), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 </div>

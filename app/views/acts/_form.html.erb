@@ -1,45 +1,16 @@
-<%= form_for @act, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [@theater, @act], :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> /Act</legend>
+    <legend><%= controller.action_name.capitalize %> Act</legend>
 
-    <div class="control-group">
-      <%= f.label :name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :description, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_area :description, :class => 'text_area' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :clasification, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :clasification, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :price, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :price, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :date, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.datetime_select :date, :class => 'datetime_select' %>
-      </div>
-    </div>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :clasification %>
+    <%= f.input :price %>
+    <%= f.input :date, :as => :datetime, :input_html => { :class => "span1" } %>
 
     <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', acts_path, :class => 'btn' %>
+      <%= f.button :submit, :class => 'btn btn-primary' %>
+      <%= link_to :cancel, theater_acts_path(@theater), :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

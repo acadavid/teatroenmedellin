@@ -17,6 +17,7 @@ class TheatersController < ApplicationController
 
   def new
     @theater = Theater.new
+    @theater.venues.build
     respond_with @theater
   end
 
