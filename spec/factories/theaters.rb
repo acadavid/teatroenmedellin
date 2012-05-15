@@ -1,8 +1,12 @@
 FactoryGirl.define do
   factory :theater do
-    name "Dream Theater"
+    sequence :name do |n|
+      "Theater #{n}"
+    end
     description "Best Theater. Eva!"
     website "http://www.dreamtheater.net"
-    email "theater@theater.com"
+    sequence :email do |n|
+      "theater#{n}@example.com"
+    end
   end
 end
