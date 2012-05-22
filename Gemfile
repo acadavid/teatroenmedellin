@@ -42,4 +42,5 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'growl'
+  gem 'simplecov', '>= 0.4.0'
 end
