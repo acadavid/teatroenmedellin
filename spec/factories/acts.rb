@@ -4,6 +4,6 @@ FactoryGirl.define do
     description "A cute dog cat"
     clasification "Kidos"
     price "9.99"
-    date Time.now
+    FactoryGirl.create_list(:act_date, 3)
   end
 end

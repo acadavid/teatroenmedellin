@@ -18,11 +18,6 @@
   <%= @act.price %>
 </p>
 
-<p>
-  <b>Date</b><br>
-  <%= @act.date %>
-</p>
-
 <div class="form-actions">
   <%= link_to 'Back', theater_acts_path(@theater), :class => 'btn'  %>
   <%= link_to 'Edit', edit_theater_act_path(@theater, @act), :class => 'btn' %>

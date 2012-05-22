@@ -4,7 +4,6 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th>Date</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -14,7 +13,6 @@
       <tr>
         <td><%= act.id %></td>
         <td><%= link_to act.name, theater_act_path(@theater, act) %></td>
-        <td><%= act.date %></td>
         <td><%= act.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_theater_act_path(@theater, act), :class => 'btn btn-mini' %>

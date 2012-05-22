@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ActsController do
   
   def valid_attributes
-    {name: "My Performance", description: "Sweet performance", date: Date.today}
+    {name: "My Performance", description: "Sweet performance"}
   end
 
   before(:each) do
