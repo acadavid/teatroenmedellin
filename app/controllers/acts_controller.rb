@@ -16,6 +16,7 @@ class ActsController < ApplicationController
 
   def new
     @act = Act.new
+    @act.act_dates.build
     respond_with @act
   end
 

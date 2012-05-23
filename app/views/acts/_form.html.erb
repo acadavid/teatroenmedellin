@@ -1,15 +1,20 @@
-<%= simple_form_for [@theater, @act], :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_nested_form_for [@theater, @act], :html => { :class => 'form-horizontal' } do |f| %>
+<fieldset>
+  <legend><%= controller.action_name.capitalize %> Act</legend>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :clasification %>
+  <%= f.input :price %>
+
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Act</legend>
-
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :clasification %>
-    <%= f.input :price %>
-
-    <div class="form-actions">
-      <%= f.button :submit, :class => 'btn btn-primary' %>
-      <%= link_to :cancel, theater_acts_path(@theater), :class => 'btn' %>
-    </div>
+    <h3>Dates</h3>
+    <%= f.fields_for :act_dates %>
+    <p><%= f.link_to_add "Add a new date", :act_dates %></p>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+    <%= link_to :cancel, theater_acts_path(@theater), :class => 'btn' %>
+  </div>
   </fieldset>
 <% end %>

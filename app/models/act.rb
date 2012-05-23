@@ -5,5 +5,7 @@ class Act < ActiveRecord::Base
  
   validates :name, :theater_id, presence: true
 
-  has_many :act_date
+  has_many :act_dates
+
+  accepts_nested_attributes_for :act_dates
 end
