@@ -1,6 +1,7 @@
 class Venue < ActiveRecord::Base
 
-  belongs_to :theater
+  belongs_to :theater, inverse_of: :venues
 
-  validates :name, :theater_id, presence: true
+  validates :name, presence: true
+  validates :theater, presence: true
 end
