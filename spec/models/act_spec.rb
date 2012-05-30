@@ -23,7 +23,7 @@ describe Act do
     end
   end
 
-  ["act_date"].each do |attr|
+  ["act_dates"].each do |attr|
     it "should have a #{attr} association" do
       act = Act.new
       act.should respond_to(attr)
@@ -31,7 +31,7 @@ describe Act do
     
     it "should be able to have an array of #{attr}" do
       act = Act.new
-      my_attr = attr.camelcase.constantize.new
+      my_attr = attr.singularize.camelcase.constantize.new
       act.send(attr).push(my_attr)
       act.send(attr).should be_a_kind_of(Array)
     end
