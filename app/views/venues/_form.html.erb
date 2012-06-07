@@ -1,6 +1,6 @@
 <%= simple_form_for [@theater, @venue], :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Venue</legend>
+    <legend><%= I18n.t(:edit) %> <%= Venue.model_name.human %></legend>
 
     <%= f.association :theater, :selected => @theater, :disabled => true %>
     <%= f.input :name %>

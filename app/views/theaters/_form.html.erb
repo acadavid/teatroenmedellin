@@ -1,6 +1,6 @@
 <%= simple_nested_form_for @theater, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Theater</legend>
+    <legend><%= I18n.t(:create) %> <%= Theater.model_name.human %></legend>
 
     <%= f.input :name %>
     <%= f.input :description %>
@@ -8,13 +8,13 @@
     <%= f.input :email %>
 
     <fieldset>
-      <h3>Venues</h3>
-    <%= f.fields_for :venues %>
-    <p><%= f.link_to_add "Add a venue", :venues %></p>
+      <h3><%= Theater.human_attribute_name(:venues) %></h3>
+      <%= f.fields_for :venues %>
+      <p><%= f.link_to_add I18n.t(:add_venue), :venues %></p>
     </fieldset>
     <div class="form-actions">
       <%= f.button :submit, :class => 'btn btn-primary' %>
-      <%= link_to :cancel, theaters_path, :class => 'btn' %>
+      <%= link_to(I18n.t(:cancel), theaters_path, :class => 'btn') %>
     </div>
   </fieldset>
 <% end %>

@@ -1,23 +1,23 @@
 <p>
-  <b>Name:</b>
+  <b><%= Venue.human_attribute_name(:name) %></b>
   <%= venue.name %>
 </p>
 
 <p>
-  <b>City:</b>
+  <b><%= Venue.human_attribute_name(:city) %></b>
   <%= venue.city %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b><%= Venue.human_attribute_name(:address) %></b>
   <%= venue.address %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b><%= Venue.human_attribute_name(:phone) %></b>
   <%= venue.phone %>
 </p>
 
 <div>
-<%= link_to "Modificar sede", edit_theater_venue_path(@theater, venue) %> | <%= link_to "Eliminar sede", theater_venue_path(@theater, venue), method: :delete, confirm: "Esta seguro que desea eliminar esta sede?" %>
+<%= link_to I18n.t(:edit), edit_theater_venue_path(@theater, venue) %> | <%= link_to I18n.t(:delete), theater_venue_path(@theater, venue), method: :delete, confirm: I18n.t(:venue_delete_confirm) %>
 </div><br />

@@ -1,0 +1,81 @@
+es:
+  create: Crear
+  cancel: Cancelar
+  edit: Editar
+  delete: Eliminar
+  back: Regresar
+  theater_created: El teatro fue creado exitosamente!
+  theater_edited: El teatro fue editado exitosamente!
+  theater_not_edited: El teatro no pudo ser editado :(
+  theater_not_created: El teatro no pudo ser creado :(
+  theater_delete_confirm: Está seguro que desea eliminar este teatro?
+  venue_created: La sede fue creada exitosamente!
+  venue_edited: La sede fue editada exitosamente!
+  venue_not_edited: La sede no pudo ser editada :(
+  venue_not_created: La sede no pudo ser creada :(
+  venue_delete_confirm: Está seguro que desea eliminar esta sede?
+  add_venue: Agregar Sede
+  add_act_date: Agregar Fecha
+  success: Éxito
+  error: Error
+  
+  activerecord:
+    models:
+      theater: Teatro
+      venue: Sede
+      act: Acto
+      act_date: Fecha
+    attributes:
+      theater:
+        name: Nombre
+        description: Descripción
+        website: Página web
+        email: Correo Electrónico
+        venues: Sedes
+        acts: Actos
+      venue:
+        theater: Teatro
+        name: Nombre
+        city: Ciudad
+        address: Dirección
+        phone: Teléfono
+      act:
+        name: Nombre
+        description: Descripción
+        clasification: Clasificación
+        price: Precio
+        act_dates: Fechas
+      act_date:
+        date: Fecha
+
+    errors:
+      models:
+        venue:
+          attributes:
+            name:
+              blank: no puede estar vacío
+        theater:
+          attributes:
+            name:
+              blank: no puede estar vacío
+
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"
+  date:
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    order:
+       - :day
+       - :month
+       - :year
+       - :hour
+       - :minute
+    day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado

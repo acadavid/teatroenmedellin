@@ -28,7 +28,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
 
     if @venue.update_attributes(params[:venue])
-      redirect_to @theater, notice: 'La sede fue modificada exitosamente'
+      redirect_to @theater, success: t(:venue_edited)
     else
       flash[:alert] = "No se pudo modificar la sede"
       render :edit

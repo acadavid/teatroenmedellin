@@ -1,37 +1,36 @@
 <h1>Theater</h1>
 
 <p>
-  <b>Name</b><br>
+  <b><%= Theater.human_attribute_name(:name) %></b><br>
   <%= @theater.name %>
 </p>
 
 <p>
-  <b>Description</b><br>
+  <b><%= Theater.human_attribute_name(:description) %></b><br>
   <%= @theater.description %>
 </p>
 
 <p>
-  <b>Website</b><br>
+  <b><%= Theater.human_attribute_name(:website) %></b><br>
   <%= @theater.website %>
 </p>
 
 <p>
-  <b>Email</b><br>
+  <b><%= Theater.human_attribute_name(:email) %></b><br>
   <%= @theater.email %>
 </p>
 
-<h3>Venues</h3>
+<h3><%= Theater.human_attribute_name(:venues) %></h3>
 <p>
   <%= render :partial => @theater.venues %>
 </p>
 
 <p>
-  <b>More</b><br>
-  <%= link_to "Acts", theater_acts_path(@theater) %>
+  <%= link_to Theater.human_attribute_name(:acts), theater_acts_path(@theater) %>
 </p>
 
 <div class="form-actions">
-  <%= link_to 'Back', theaters_path, :class => 'btn'  %>
-  <%= link_to 'Edit', edit_theater_path(@theater), :class => 'btn' %>
-  <%= link_to 'Delete', theater_path(@theater), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+  <%= link_to I18n.t(:back), theaters_path, :class => 'btn'  %>
+  <%= link_to I18n.t(:edit), edit_theater_path(@theater), :class => 'btn' %>
+  <%= link_to I18n.t(:delete), theater_path(@theater), :method => 'delete', :confirm => I18n.t(:theater_delete_confirm), :class => 'btn btn-danger' %>
 </div>

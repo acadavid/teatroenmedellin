@@ -28,10 +28,10 @@ class TheatersController < ApplicationController
   def create
     @theater = Theater.new(params[:theater])
     if @theater.save
-      flash[:notice] = "El teatro fue creado exitosamente"
+      flash[:success] = t(:theater_created)
       redirect_to @theater
     else
-      flash[:notice] = "No se pudo crear el teatro"
+      flash[:error] = t(:theater_not_created)
       render :new
     end
   end
