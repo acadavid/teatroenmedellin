@@ -1,0 +1,372 @@
+/* 
+
+  My Costum Stylesheet
+  
+  
+*/
+
+/* Fist, pull in Bootstrap's stylesheet */
+
+@import url(bootstrap.css);
+@import url(bootstrap-responsive.css);
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../fonts/League_Gothic-webfont.eot');
+    src: url('../fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League_Gothic-webfont.ttf') format('truetype'),
+         url('../fonts/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* Now my custom styles */
+
+/* Navigation styles */
+
+body {
+  background-color:#EBE3DA;
+}
+
+h1, h2, h3, small {
+  font-family:'Lobster', 'Cambria', 'Bookman Old Style';
+  font-weight:400;
+}
+
+ul {
+  list-style:none;
+}
+
+.navbar-fixed-top {
+  overflow:hidden;
+  position:relative;
+}
+
+.stripes {
+  float: left;
+  top: 98px;
+  margin:3px 0 0 -493px;
+  left: 50%;
+  width: 100%;
+  position: absolute;
+  height: 64px;
+  background: url('../assets/colored-stripes.png') repeat-x;
+}
+
+.navbar-inner,
+.navbar-inner .container {
+  background: rgb(112,64,54); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(112,64,54,1) 0%, rgba(75,15,4,1) 1%, rgba(76,16,5,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(112,64,54,1)), color-stop(1%,rgba(75,15,4,1)), color-stop(100%,rgba(76,16,5,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(112,64,54,1) 0%,rgba(75,15,4,1) 1%,rgba(76,16,5,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(112,64,54,1) 0%,rgba(75,15,4,1) 1%,rgba(76,16,5,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(112,64,54,1) 0%,rgba(75,15,4,1) 1%,rgba(76,16,5,1) 100%); /* IE10+ */
+  background: linear-gradient(top, rgba(112,64,54,1) 0%,rgba(75,15,4,1) 1%,rgba(76,16,5,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#704036', endColorstr='#4c1005',GradientType=0 ); /* IE6-9 */
+}
+
+.navbar-inner .container {
+  background: transparent url('../assets/lines.png') right top no-repeat;
+}
+
+.navbar-inner .container .brand {
+  margin:0;
+  padding: 0;
+  width:100%;
+}
+
+.navbar-inner .container .brand img {
+  position:relative;
+}
+
+.navbar-inner .container .brand h1,
+.navbar-inner .container .brand img {
+  float:left;
+}
+
+.navbar-inner .container .brand h1 {
+  margin:68px 0 0 -22px;
+  color:#ffead5;
+  font-weight: 400;
+  font-family:'Lobster';
+}
+
+.navbar-inner .container .brand  .pull-right {
+  margin-top:130px;
+}
+
+.navbar-inner .container .brand  .pull-right .nav-collapse {
+  float:right;
+}
+
+.navbar-inner .container .brand  .pull-right .nav-collapse li.active a {
+  background:transparent;
+}
+
+.navbar-inner .container .brand  .pull-right .nav-collapse a {
+  font-size:0.8em;
+  font-weight:400;
+  letter-spacing:2px;
+  color:#f0e9d8;
+  padding-bottom:8px;
+}
+
+/* End navigation styles */
+
+
+/* End header styles */
+
+.container .hero-unit {
+  background:transparent;
+  padding:0 20px 0 0 ;
+}
+
+.container .hero-unit .social {
+  margin:23px 0;
+  float:right;
+}
+
+.container .hero-unit .social ul {
+  display:inline;
+}
+
+.container .hero-unit ul li {
+  float:right;
+}
+
+.container .hero-unit ul li a img {
+  width:40px;
+  height:40px;
+  -moz-opacity:0.6;
+  -webkit-opacity:0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE Fallback */
+  opacity:0.6;
+  -webkit-transition: all 0.2s linear  ;
+  transition: all 0.2s linear 
+}
+
+.container .hero-unit ul li a:focus img,
+.container .hero-unit ul li a:hover img {
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -moz-opacity:1;
+  -webkit-opacity:1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; /* IE Fallback */
+  opacity:1;
+}
+
+/* End header styles */
+
+/* Events list styles */
+
+.row {
+  padding:0 20px;
+  text-align:center;
+  color:#581e0e;
+}
+
+.row .events-title {
+  margin:auto;
+  width:300px;
+}
+
+.row .dates {
+  float:right;
+  margin:20px 0;
+}
+
+.row .dates ul li {
+  margin:0 5px;
+  float:left;
+  display:inline;
+}
+
+.row .dates ul li a {
+  color:#581E0E;
+}
+
+.row .dates ul li a.active {
+  border:1px solid #581e0e;
+  padding:5px;
+  background-color:#fff;
+}
+
+.row .events-title hr {
+  border:1px solid #581e0e;
+  margin:3px 0 7px;
+  padding:0;
+}
+
+.row .events-title h2 {
+  font-size:34px;
+  display: inline-block;
+}
+
+.row section {
+  float:left;
+  width:100%;
+  border:2px solid #581e0e;
+}
+
+.row section .play {
+  position:relative;
+  margin:0;
+  height:202px;
+  float:left;
+} 
+
+.row section .play img {
+  padding-top:15px;
+  margin:auto;
+  height:180px;
+  max-height:178px;
+}
+
+.row .events-list {
+  margin-left:13px;
+}
+
+.row .events-list li {
+  margin-bottom:45px;
+}
+
+.row section .event-information {
+  margin-top:8px;
+  height:200px;
+  text-align:left;
+}
+
+.row section .event-information hgroup h2 small {
+  color:#6d3b2c;
+}
+
+.row section .event-information hgroup h3 small {
+  color:#ab8d80;
+  font-family: 'LeagueGothicRegular', 'Lucida Grande', 'Helvetica Neue';
+}
+
+.row section .event-information hgroup h3,
+.row section .event-information hgroup h2, 
+.row section .event-information h1 {
+  line-height:19px;
+}
+
+.row section .event-information h3,
+.row section .event-information h2 {
+  display:inline;
+}
+
+.row section .event-information h1 {
+  display:inline;
+  margin:7px 0;
+  line-height:37px;
+  color:#e9ab74;
+}
+
+.row section .event-information  p {
+  margin-top:5px;;
+}
+
+.row section .event-information .description a {
+  float:right;
+}
+
+.row section .event-information .block {
+  height:153px;
+  width:19%;
+  padding:10px;
+  margin:10px;
+  float:right;
+  border:2px solid #581e0e;
+  background:#fff;
+}
+
+.row section .event-information .block hgroup {
+  height:95%;
+  padding-top:9px;
+  text-align:center;
+  border-style:solid;
+  border-width:0 1px;
+  border-color:#581e0e;
+}
+
+
+.row section .event-information .block hgroup h2,
+.row section .event-information .block hgroup h3 small {
+  display:block;
+}
+
+.row section .event-information .block hgroup h2 {
+  margin-bottom:10px;  
+}
+
+.row section .event-information .block hgroup h3 small {
+  margin:2px;
+}
+
+.row .pagination {
+  clear:both;
+  left: 50%;
+  position: relative;
+  margin:0 0 40px -70px ;
+}
+
+/* End events list styles */
+
+footer {
+  background-color:#ebe3da;
+  height:100%;
+  border-top:1px solid #d8cec4;
+  box-shadow:inset 2px 4px 6px #E6DACD;
+}
+
+footer div {
+  position: relative;
+  margin-left: -583px;
+  left: 50%;
+  padding:20px 0;
+}
+
+footer div p {
+  -webkit-text-shadow:2px 1px 1px rgba(255, 255, 255, 0.9);
+  -moz-text-shadow:2px 1px 1px rgba(255, 255, 255, 0.9);
+  -o-text-shadow:2px 1px 1px rgba(255, 255, 255, 0.9);
+  text-shadow:2px 1px 1px rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+  color: #A18074;
+}
+
+/* Responsive costum styles */
+
+@media (max-width:979px) {
+  .nav-collapse, .nav-collapse.collapse {
+    height:auto;
+  }
+
+  .navbar-inner .container .brand .pull-right {
+    margin:15px 0 0;
+    width:100%;
+    clear:both;
+    float:left;
+  }
+  
+  .navbar-inner .container .brand .pull-right .nav-collapse {
+    float:none;
+  }
+  
+  .navbar-inner .container .brand .pull-right li {
+    padding-left:70px;
+    background:#3a0f07;
+  }
+  
+  
+  
+}
+
+
+
+
