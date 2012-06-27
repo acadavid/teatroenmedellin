@@ -7,9 +7,6 @@
 
 /* Fist, pull in Bootstrap's stylesheet */
 
-@import url(bootstrap.css);
-@import url(bootstrap-responsive.css);
-
 @font-face {
     font-family: 'LeagueGothicRegular';
     src: url('../fonts/League_Gothic-webfont.eot');
