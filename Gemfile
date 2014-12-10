@@ -32,6 +32,7 @@ group :development,:test do
   gem 'factory_girl_rails'
   gem 'growl'
   gem 'railroady'
+  gem 'spring'
 end
 
 group :test do
