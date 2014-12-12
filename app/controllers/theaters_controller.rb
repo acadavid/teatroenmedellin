@@ -26,7 +26,7 @@ class TheatersController < ApplicationController
   end
 
   def create
-    @theater = Theater.new(params[:theater])
+    @theater = Theater.new(theater_params)
     if @theater.save
       flash[:success] = t(:theater_created)
       redirect_to @theater
@@ -38,7 +38,7 @@ class TheatersController < ApplicationController
 
   def update
     @theater = Theater.find(params[:id])
-    if @theater.update_attributes(params[:theater])
+    if @theater.update_attributes(theater_params)
       redirect_to @theater, notice: 'El teatro fue modificado exitosamente'
     else
       flash[:alert] = "No se pudo modificar el teatro"
@@ -50,5 +50,11 @@ class TheatersController < ApplicationController
     @theater = Theater.find(params[:id])
     @theater.destroy
     redirect_to theaters_path, notice: "El teatro fue borrado exitosamente"
+  end
+
+  private
+
+  def theater_params
+    params.require(:theater).permit(:name, :description, :website, :email)
   end
 end

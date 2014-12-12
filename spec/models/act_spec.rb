@@ -4,9 +4,7 @@ describe Act do
 
   it "should validate the presence of name, theater_id and date" do
     act = Act.new
-    [:name, :theater_id].each do |attr|
-      act.should have(1).error_on(attr)
-    end
+    act.should_not be_valid
   end
 
   ["venue", "theater"].each do |attr|
@@ -32,8 +30,9 @@ describe Act do
     it "should be able to have an array of #{attr}" do
       act = Act.new
       my_attr = attr.singularize.camelcase.constantize.new
+
       act.send(attr).push(my_attr)
-      act.send(attr).should be_a_kind_of(Array)
+      act.send(attr).should be_a_kind_of(ActiveRecord::Associations::CollectionProxy)
     end
   end
 end

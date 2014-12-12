@@ -5,4 +5,8 @@ FactoryGirl.define do
     clasification "Kidos"
     price "9.99"
   end
+
+  factory :invalid_act, parent: :act do
+    name nil
+  end
 end

@@ -1,8 +1,8 @@
 require 'spec_helper'
-describe VenuesController do
+describe VenuesController, type: :controller do
 
   before(:each) do
-    @theater = Factory(:theater)
+    @theater = FactoryGirl.create(:theater)
   end
 
   def valid_attributes
@@ -18,7 +18,7 @@ describe VenuesController do
 
   describe "GET edit" do
     it "assigns the requested venue as @venue" do
-      venue = Factory(:venue)
+      venue = FactoryGirl.create(:venue)
       get :edit, {theater_id: @theater.to_param, id: venue.to_param}
       assigns(:venue).should eq(venue)
     end
@@ -45,15 +45,17 @@ describe VenuesController do
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved venue as @venue" do
-        Venue.any_instance.stub(:save).and_return(false)
-        post :create, {theater_id: @theater.to_param, venue: {}}
-        assigns(:venue).should be_a_new(Venue)
+      it "does not save the new venue" do
+        invalid_venue = FactoryGirl.attributes_for(:invalid_venue, theater: @theater)
+        expect {
+          post :create, {theater_id: @theater.to_param, venue: invalid_venue}
+        }.to_not change(Venue,:count)
       end
 
       it "re-renders the 'new' template" do
+        invalid_venue = FactoryGirl.attributes_for(:invalid_venue, theater: @theater)
         Venue.any_instance.stub(:save).and_return(false)
-        post :create, {theater_id: @theater.to_param, venue: {}}
+        post :create, {theater_id: @theater.to_param, venue: invalid_venue}
         response.should render_template("new")
       end
     end
@@ -62,19 +64,19 @@ describe VenuesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested venue" do
-        venue = Factory(:venue)
-        Venue.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: {'these' => 'params'}}
+        venue = FactoryGirl.create(:venue)
+        Venue.any_instance.should_receive(:update_attributes).with({"name" => "Pequeño teatro"})
+        put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: {'name' => "Pequeño teatro"}}
       end
 
       it "assigns the requested venue as @venue" do
-        venue = Factory(:venue)
+        venue = FactoryGirl.create(:venue)
         put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: valid_attributes}
         assigns(:venue).should eq(venue)
       end
 
       it "redirects to the theater" do
-        venue = Factory(:venue)
+        venue = FactoryGirl.create(:venue)
         put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: valid_attributes}
         response.should redirect_to(@theater)
       end
@@ -82,16 +84,18 @@ describe VenuesController do
 
     describe "with invalid params" do
       it "assigns the venue as @venue" do
-        venue = Factory(:venue)
+        venue = FactoryGirl.create(:venue)
+        invalid_venue = FactoryGirl.attributes_for(:invalid_venue, theater: @theater)
         Venue.any_instance.stub(:save).and_return(false)
-        put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: {}}
+        put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: invalid_venue}
         assigns(:venue).should eq(venue)
       end
 
       it "re-renders the 'edit' template" do
-        venue = Factory(:venue)
+        venue = FactoryGirl.create(:venue)
+        invalid_venue = FactoryGirl.attributes_for(:invalid_venue, theater: @theater)
         Venue.any_instance.stub(:save).and_return(false)
-        put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: {}}
+        put :update, {theater_id: @theater.to_param, id: venue.to_param, venue: invalid_venue}
         response.should render_template("edit")
       end
     end
@@ -99,14 +103,14 @@ describe VenuesController do
 
   describe "DELETE destroy" do
     it "destroys the requested venue" do
-      venue = Factory(:venue)
+      venue = FactoryGirl.create(:venue)
       expect {
         delete :destroy, {theater_id: @theater.to_param, id: venue.to_param}
       }.to change(Venue, :count).by(-1)
     end
 
     it "redirects to the theater" do
-      venue = Factory(:venue)
+      venue = FactoryGirl.create(:venue)
       delete :destroy, {theater_id: @theater.to_param, id: venue.to_param}
       response.should redirect_to(@theater)
     end

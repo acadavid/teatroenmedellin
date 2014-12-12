@@ -4,9 +4,7 @@ describe Venue do
 
   it "should validate the presence of name and theater_id" do
     venue = Venue.new
-    [:name, :theater].each do |attr|
-      venue.should have(1).error_on(attr)
-    end
+    venue.should_not be_valid
   end
 
   it "should have a theater association" do

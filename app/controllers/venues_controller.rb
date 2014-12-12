@@ -14,7 +14,7 @@ class VenuesController < ApplicationController
   end
 
   def create
-    @venue = @theater.venues.build(params[:venue])
+    @venue = @theater.venues.build(venue_params)
 
     if @venue.save
       redirect_to @theater, notice: "La sede fue creada exitosamente"
@@ -27,7 +27,7 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
 
-    if @venue.update_attributes(params[:venue])
+    if @venue.update_attributes(venue_params)
       redirect_to @theater, success: t(:venue_edited)
     else
       flash[:alert] = "No se pudo modificar la sede"
@@ -45,5 +45,9 @@ class VenuesController < ApplicationController
 
   def get_theater
     @theater = Theater.find(params[:theater_id])
+  end
+
+  def venue_params
+    params.require(:venue).permit(:name, :city, :address, :phone, :theater_id)
   end
 end

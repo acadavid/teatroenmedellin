@@ -6,11 +6,8 @@ describe ActDate do
 
   subject { @act_date }
 
-  it "should validate the presence of name and theater_id" do
-    [:date].each do |attr|
-      should_not be_valid
-      should have(1).error_on(attr)
-    end
+  it "should validate the presence date" do
+    FactoryGirl.build(:act_date, :date => "").should_not be_valid
   end
 
   it "should be able to have an act" do
