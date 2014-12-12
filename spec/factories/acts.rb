@@ -4,6 +4,9 @@ FactoryGirl.define do
     description "A cute dog cat"
     clasification "Kidos"
     price "9.99"
-    FactoryGirl.create_list(:act_date, 3)
+  end
+
+  factory :invalid_act, parent: :act do
+    name nil
   end
 end

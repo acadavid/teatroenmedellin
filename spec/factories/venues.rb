@@ -6,4 +6,8 @@ FactoryGirl.define do
     phone "4444444"
     theater
   end
+
+  factory :invalid_venue, parent: :venue do
+    name nil
+  end
 end

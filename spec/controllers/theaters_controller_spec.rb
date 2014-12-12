@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TheatersController do
+describe TheatersController, type: :controller do
   
   def valid_attributes
     {name: "Le Theater", description: "A very cool theater"}
@@ -13,8 +13,8 @@ describe TheatersController do
     end
     
     it "should assign the all theaters to @theaters" do
-      theater1 = Factory(:theater)
-      theater2 = Factory(:theater, name: "Supa Theater!")
+      theater1 = FactoryGirl.create(:theater)
+      theater2 = FactoryGirl.create(:theater, name: "Supa Theater!")
       get :index, {}
       assigns(:theaters) =~ [theater1, theater2]
     end
@@ -22,13 +22,13 @@ describe TheatersController do
   
   describe "GET show" do
     it "should be successful" do
-      theater = Factory(:theater)
+      theater = FactoryGirl.create(:theater)
       get :show, id: 1
       response.should be_success
     end
     
     it "should assign the right theater to @theater" do
-      theater = Factory(:theater)
+      theater = FactoryGirl.create(:theater)
       get :show, id: 1
       assigns(:theater).should eq(theater)
     end 
@@ -43,7 +43,7 @@ describe TheatersController do
 
   describe "GET edit" do
     it "assings the requested theater as @theater" do
-      theater = Factory(:theater)
+      theater = FactoryGirl.create(:theater)
       get :edit, id: 1
       assigns(:theater).should eq(theater)
     end
@@ -64,15 +64,17 @@ describe TheatersController do
     end
     
     describe "with invalid params" do
-      it "assings a newly created but unsaved theater as @theater" do
-        Theater.any_instance.stub(:save).and_return(false)
-        post :create, {theater: {}}
-        assigns(:theater).should be_a_new(Theater)
+      it "does not save the new theater" do
+        invalid_theater = FactoryGirl.attributes_for(:invalid_theater)
+        expect{
+          post :create, {theater: invalid_theater}
+        }.to_not change(Act,:count)
       end
 
       it "re-renders 'new' action" do
+        invalid_theater = FactoryGirl.attributes_for(:invalid_theater)
         Theater.any_instance.stub(:save).and_return(false)
-        post :create, {theater: {}}
+        post :create, {theater: invalid_theater }
         response.should render_template("new")
       end
     end
@@ -81,19 +83,19 @@ describe TheatersController do
   describe "PUT update" do
     describe "with valid params" do
       it "modifies the requested theater" do
-        theater = Factory(:theater)
+        theater = FactoryGirl.create(:theater)
         Theater.any_instance.should_receive(:update_attributes).with({"name" => "Whachadoing yo Theater"})
         put :update, {id: theater.to_param, theater: {name: "Whachadoing yo Theater"}}
       end
 
       it "assings the requested Theater as @theater" do
-        theater = Factory(:theater)
+        theater = FactoryGirl.create(:theater)
         put :update, {id: theater.to_param, theater: {name: "Whachadoing yo Theater"}}
         assigns(:theater).should eq(theater)
       end
 
       it "redirects to updated Theater" do
-        theater = Factory(:theater)
+        theater = FactoryGirl.create(:theater)
         put :update, {id: theater.to_param, theater: {name: "Whachadoing yo Theater"}}
         response.should redirect_to(theater)
       end
@@ -101,16 +103,18 @@ describe TheatersController do
     
     describe "with invalid params" do
       it "assigns the requested Theater as @theater" do
-        theater = Factory(:theater)
+        theater = FactoryGirl.create(:theater)
+        invalid_theater = FactoryGirl.attributes_for(:invalid_theater)
         Theater.any_instance.stub(:save).and_return(false)
-        put :update, {id: theater.to_param, theater: {}}
+        put :update, {id: theater.to_param, theater: invalid_theater}
         assigns(:theater).should eq(theater)
       end
 
       it "re-renders 'edit' action" do
-        theater = Factory(:theater)
+        theater = FactoryGirl.create(:theater)
+        invalid_theater = FactoryGirl.attributes_for(:invalid_theater)
         Theater.any_instance.stub(:save).and_return(false)
-        put :update, {id: theater.to_param, theater: {}}
+        put :update, {id: theater.to_param, theater: invalid_theater}
         response.should render_template("edit")
       end
     end
@@ -118,14 +122,14 @@ describe TheatersController do
 
   describe "DELETE destroy" do
     it "destroys the requested theater" do
-      theater = Factory(:theater)
+      theater = FactoryGirl.create(:theater)
       expect {
         delete :destroy, {id: theater.to_param}
       }.to change(Theater, :count).by(-1)
     end
 
     it "redirects to the theater list" do
-      theater = Factory(:theater)
+      theater = FactoryGirl.create(:theater)
       delete :destroy, {id: theater.to_param}
       response.should redirect_to(theaters_url)
     end

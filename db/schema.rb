@@ -9,45 +9,45 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518132134) do
+ActiveRecord::Schema.define(version: 20120518132134) do
 
-  create_table "act_dates", :force => true do |t|
+  create_table "act_dates", force: true do |t|
     t.datetime "date"
     t.integer  "act_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "acts", :force => true do |t|
+  create_table "acts", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "clasification"
     t.decimal  "price"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "theater_id"
     t.integer  "venue_id"
   end
 
-  create_table "theaters", :force => true do |t|
+  create_table "theaters", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "website"
     t.string   "email"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "venues", :force => true do |t|
+  create_table "venues", force: true do |t|
     t.string   "name"
     t.string   "city"
     t.string   "address"
     t.string   "phone"
     t.integer  "theater_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

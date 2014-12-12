@@ -25,7 +25,7 @@ class ActsController < ApplicationController
   end
 
   def create
-    @act = @theater.acts.new(params[:act])
+    @act = @theater.acts.new(act_params)
     
     if @act.save
       flash[:notice] = 'Act was successfully created.'
@@ -38,7 +38,7 @@ class ActsController < ApplicationController
   def update
     @act = @theater.acts.find(params[:id])
     
-    if @act.update_attributes(params[:act])
+    if @act.update_attributes(act_params)
       respond_with(@theater, @act)
     else
       render action: :edit
@@ -56,5 +56,9 @@ class ActsController < ApplicationController
 
   def set_theater
     @theater = Theater.find(params[:theater_id]) if params[:theater_id].present?
+  end
+
+  def act_params
+    params.require(:act).permit(:name, :description, :clasification, :price, :theater_id, :venue_id)
   end
 end

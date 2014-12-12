@@ -9,4 +9,8 @@ FactoryGirl.define do
       "theater#{n}@example.com"
     end
   end
+
+  factory :invalid_theater, parent: :theater do
+    name nil
+  end
 end

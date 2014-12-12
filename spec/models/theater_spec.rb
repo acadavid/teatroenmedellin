@@ -5,16 +5,16 @@ describe Theater do
   [:name].each do |attr|
     it "should validate the presence of #{attr}" do
       theater = Theater.new
-      theater.should have(1).error_on(attr)
+      theater.should_not be_valid
     end
   end
 
   it "should validate uniqueness of name" do
     theater = FactoryGirl.create(:theater)
-    theater2 = Theater.new(:name => theater.name)
+    theater2 = Theater.create(:name => theater.name)
 
     theater2.should_not be_valid
-    theater2.should have(1).error_on(:name)
+    expect(theater2.errors.size).to be >= 1
   end
 
   context "Associations" do
