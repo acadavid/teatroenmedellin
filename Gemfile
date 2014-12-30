@@ -14,6 +14,7 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'therubyracer', :require => 'v8'
 gem 'dalli'
+gem 'sorcery'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,6 +35,7 @@ group :development,:test do
   gem 'growl'
   gem 'railroady'
   gem 'spring'
+  gem 'pry-byebug'
 end
 
 group :test do

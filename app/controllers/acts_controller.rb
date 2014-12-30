@@ -2,6 +2,7 @@ class ActsController < ApplicationController
 
   respond_to :html
 
+  before_filter :require_login, :except => [:index, :show]
   before_filter :set_theater
 
   def index

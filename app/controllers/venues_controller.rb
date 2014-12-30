@@ -1,6 +1,7 @@
 class VenuesController < ApplicationController
 
   before_filter :get_theater
+  before_filter :require_login
 
   respond_to :html
 
