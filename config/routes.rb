@@ -7,6 +7,10 @@ Teatroenmedellin::Application.routes.draw do
 
   root :to => 'theaters#index'
 
+  get 'login' => 'user_sessions#new', :as => 'login'
+  get 'logout' => 'user_sessions#destroy', :as => 'logout'
+  post 'create_session' => 'user_sessions#create', :as => 'create_session'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

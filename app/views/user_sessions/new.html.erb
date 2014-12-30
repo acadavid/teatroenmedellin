@@ -1,0 +1,15 @@
+<%= simple_form_for @user, :url => create_session_path, :method => :post do |f| %>
+
+  <h1>Ingresa los datos de logueo</h1>
+ 
+  <div class="field">
+    <%= f.input :email %>
+  </div>
+  <div class="field">
+    <%= f.input :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Login', :class => 'btn btn-primary' %>
+  </div>
+
+<% end %>
