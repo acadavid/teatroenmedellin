@@ -1,10 +1,10 @@
 class TheatersController < ApplicationController
 
   respond_to :html
+  before_filter :require_login, :except => [:index, :show]
 
   def index
     @theaters = Theater.all
-
     respond_with @theaters
   end
 
