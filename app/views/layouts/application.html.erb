@@ -44,14 +44,18 @@
                   <li><a href="#contact">Teatros</a></li>
                   <li><a href="#contact">Noticias</a></li>
                   <li><a href="#contact">Contacto</a></li>
+                  <% if logged_in? %>
+                    <li><%= link_to "Logout", logout_path %></li>
+                  <% end %>
                 </ul>
-	      </div>
-	      
-	    </div><!--/.nav-inner -->				
-	    
+              </div>
+            </div><!--/.nav-inner -->				
           </div><!--/.nav-collapse -->
         </div>
       </div>
+      <% if current_user %>
+        <h6>Hey <%= "#{current_user.email}" %>!, remember you're logged as administrator.</h6>
+      <% end %>
     </div>
     
     <div style="background:#FAF7EE">
@@ -76,9 +80,8 @@
         <!-- Example row of columns -->
 
         <div class="row">
-          
-         <%= yield %>
-
+          <%= render partial: "shared/flash_messages", flash: flash %> 
+          <%= yield %>
         </div>
         
       </div> <!-- /container -->

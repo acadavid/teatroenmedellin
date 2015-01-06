@@ -3,6 +3,7 @@ describe VenuesController, type: :controller do
 
   before(:each) do
     @theater = FactoryGirl.create(:theater)
+    login_user FactoryGirl.create(:user)
   end
 
   def valid_attributes
