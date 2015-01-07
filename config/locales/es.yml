@@ -107,6 +107,9 @@ es:
       update: "Actualizar %{model}"
   date:
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"
     order:
        - :day
        - :month
@@ -121,3 +124,22 @@ es:
       - jueves
       - viernes
       - sábado
+    abbr_month_names:
+      - 
+      - Ene
+      - Feb
+      - Mar
+      - Abr
+      - May
+      - Jun
+      - Jul
+      - Ago
+      - Sep
+      - Oct
+      - Nov
+      - Dic
+
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"

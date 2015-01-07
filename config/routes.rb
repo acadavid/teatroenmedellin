@@ -1,11 +1,13 @@
 Teatroenmedellin::Application.routes.draw do
 
+  get 'home/:date', to: 'home#index', :as => 'home'
+
   resources :theaters do
     resources :venues, :except => [:index, :show]
     resources :acts
   end
 
-  root :to => 'theaters#index'
+  root :to => 'home#index'
 
   get 'login' => 'user_sessions#new', :as => 'login'
   get 'logout' => 'user_sessions#destroy', :as => 'logout'
