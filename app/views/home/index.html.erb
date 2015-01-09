@@ -19,7 +19,11 @@
   <div class="events">
           
     <ul class="events-list">
-      <%= render_acts_dates %>
+      <%= render_act_dates(@act_dates) %>
     </ul>
+
+    <div class="pagination">
+      <%= paginate @act_dates %>
+    </div>
   </div>        
 </div>  <!-- end of row-->
