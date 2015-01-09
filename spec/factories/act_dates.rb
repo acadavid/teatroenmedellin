@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :act_date do
     date "2012-05-17 09:37:06"
+    act
   end
 end
