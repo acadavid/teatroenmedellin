@@ -1,0 +1,34 @@
+<li>
+  <section>
+    <div class="play span3">
+      <img src="../../assets/default.png">
+    </div>
+  
+    <div class="event-information">
+     
+      <div class="block">
+        <hgroup>
+          <h2><%= "Precio: #{number_to_currency(show.act.price, precision: 0, :unit => "$")}" %></h2>
+          <h3><small>Hora</small></h3>
+          <h2><%= show.date.strftime("%I:%M%p") %></h2>
+          <h3><small>Dirección</small></h3>
+          <h2><%= show.act.venue.address %></h2>
+        </hgroup>
+      </div>
+     
+      <hgroup>
+      
+        <h2><small><%= show.act.theater.name %></small></h2><h3>
+        <small>Presenta</small></h3>
+     
+      </hgroup>
+    
+      <h1><%= show.act.name %></h1>
+    
+      <p><%= show.act.description.truncate(400) %></p>
+  
+      <%= link_to "Ir al evento", theater_act_path(show.act.theater, show.act) %>
+    </div>
+  </section>
+  <div style="clear:both">
+</li>

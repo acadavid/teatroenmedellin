@@ -298,7 +298,6 @@ ul {
 
 .row .pagination {
   clear:both;
-  left: 50%;
   position: relative;
   margin:0 0 40px -70px ;
 }

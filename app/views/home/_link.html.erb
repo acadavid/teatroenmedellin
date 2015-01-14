@@ -1,0 +1,1 @@
+<li><%= link_to (link.today? ? "Hoy" : (I18n.l link, format: :short)), home_path(date: link), :class => (link == @date ? "active" : "") %></li>

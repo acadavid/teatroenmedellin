@@ -107,6 +107,9 @@ es:
       update: "Actualizar %{model}"
   date:
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"
     order:
        - :day
        - :month
@@ -121,3 +124,39 @@ es:
       - jueves
       - viernes
       - sábado
+    abbr_month_names:
+      - 
+      - Ene
+      - Feb
+      - Mar
+      - Abr
+      - May
+      - Jun
+      - Jul
+      - Ago
+      - Sep
+      - Oct
+      - Nov
+      - Dic
+
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"
+
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
+      truncate: "&hellip;"
+    helpers:
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: "No %{entry_name} encontrados"
+            one: "Mostrando <b>1</b> %{entry_name}"
+            other: "Mostrando <b>all %{count}</b> %{entry_name}"
+        more_pages:
+          display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> en total"        

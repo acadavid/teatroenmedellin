@@ -11,7 +11,7 @@ RSpec.describe UserSessionsController, :type => :controller do
 
   describe "GET create" do
     it "returns http success" do
-      get :create
+      post :create, user: FactoryGirl.attributes_for(:user)
       expect(response).to have_http_status(:success)
     end
   end
@@ -22,9 +22,9 @@ RSpec.describe UserSessionsController, :type => :controller do
       @controller.stub(:login).and_return(true)
       #response.should redirect_to(root_url)
       #expect(response).to redirect_to root_url
-      #response.status.should eq 200
+      response.status.should eq 200
       #response.should_be redirected
-      assert_redirected_to root_url
+      #assert_redirected_to root_url
     end
 
     it "Invalid Session" do

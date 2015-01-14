@@ -1,0 +1,29 @@
+<img src="../../assets/slider.png" alt="Temp file" style="width:100%; border: 1px solid #eae4d3">
+
+<!-- Example row of columns -->
+      
+<div class="row">
+
+  <div class="events-title">
+    <h2>Programación</h2>
+    <hr/>
+    <img src="../../assets/curled.png" alt="cenefa"/>
+  </div>
+
+  <div class="dates">
+    <ul>
+      <%= render partial: 'link', collection: @dates %>
+    </ul>
+  </div>
+        
+  <div class="events">
+          
+    <ul class="events-list">
+      <%= render_act_dates(@act_dates) %>
+    </ul>
+
+    <div class="pagination">
+      <%= paginate @act_dates %>
+    </div>
+  </div>        
+</div>  <!-- end of row-->
